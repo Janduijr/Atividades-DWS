@@ -1,0 +1,33 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;          /* espaço entre cada campo */
+    max-width: 300px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;           /* espaço entre o label e o input */
+}
+
+label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+#resultado {
+    margin-top: 20px;
+}
