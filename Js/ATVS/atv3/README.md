@@ -1,0 +1,1 @@
+Caso alguem exclua um autor todos os livros serao excluidos automaticamente.
