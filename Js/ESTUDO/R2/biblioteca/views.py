@@ -9,3 +9,4 @@ def exibir(request):
         'livros':livros
     }
     
+    return render(request, 'biblioteca/exibir.html', context)
