@@ -8,10 +8,11 @@
 <body>
     {% for livro in livros %}
         <h1>{{livro.titulo}}</h1>
-        <h2>{{livro.autor}}</h2>
+        <h2><a href="{% url 'autor' livro.autor.id %}">{{livro.autor}}</h2></a>
         <br>
     {% empty %}
         <p>Nao possui livros!</p>
     {% endfor %}
+    <a href="{% url 'adicionar' %}">Adiconar livro</a>
 </body>
 </html>

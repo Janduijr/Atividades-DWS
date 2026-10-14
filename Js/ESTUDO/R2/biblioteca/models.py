@@ -20,7 +20,6 @@ class Autor(models.Model):
         return self.nome
     
     
-
 class Livro(models.Model):
     titulo = models.CharField(max_length=200)
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE, related_name='books')
