@@ -1,0 +1,21 @@
+{% extends 'agenda/base.html'%}
+
+{%block title%} <title>Index</title> {% endblock title %}\
+
+{% block conteudo %}
+    
+    {% for evento in eventos %}
+        <a href="{% url 'detalhe' evento.id %}"><h1>{{evento.titulo}}</h1></a>
+        <h1>{{evento.inicio}}</h1>
+        <a href="{% url 'local' evento.local.id %}"><h1>{{evento.local}}</h1></a>
+        {% for categoria in evento.categoria.all %}
+            <h1>{{categoria.nome}}</h1>
+        {% empty %}
+            <h3>Nao ha catogorias</h3>
+        {% endfor %}
+        <br>
+    {% empty %}
+        <h3>Nao ha eventos!</h3>
+    {% endfor %}
+
+{% endblock conteudo %}

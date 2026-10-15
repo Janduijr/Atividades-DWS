@@ -43,7 +43,7 @@ class Evento(models.Model):
         return self.titulo
     
     def vagas_restantes(self):
-        return self.local.capacidade - self.evento_inscricao.count()
+        return self.local.capacidade - self.evento_relatorio.presentes
          
         
 
@@ -76,7 +76,7 @@ class Inscricao(models.Model):
 
 class Relatorio(models.Model):
     presentes = models.PositiveIntegerField()
-    observacoes = models.TimeField(null=True, blank=True)
+    observacoes = models.TextField(null=True, blank=True)
     evento = models.OneToOneField(Evento, on_delete=models.CASCADE, related_name='evento_relatorio')
 
     class Meta:

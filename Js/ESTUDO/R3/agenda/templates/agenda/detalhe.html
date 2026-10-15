@@ -1,0 +1,27 @@
+{% extends 'agenda/base.html'%}
+
+{%block title%} <title>Detalhes</title> {% endblock title %}
+
+{% block conteudo %}
+    <h1>{{evento}}</h1>
+    {% for atividade in evento.evento_atividade.all %}
+        <p>{{atividade.titulo}}</p>
+        <br>
+    {% empty %}
+        <p>Nao ha atividades!</p>
+        <br>
+    {% endfor %}
+    
+    <p>{{evento.vagas_restantes}}</p>
+    <br>
+
+    {% if evento.evento_relatorio %}
+        <p>{{evento.evento_relatorio.presentes}}</p>
+        <p>{{evento.evento_relatorio.observacoes}}</p>
+        <br>
+    {% else %}
+        <p>Nao ha relatorios!</p>
+        <br>
+    {% endif %}
+
+{% endblock conteudo %}

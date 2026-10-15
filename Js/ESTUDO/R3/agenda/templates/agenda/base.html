@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'agenda\css\style.css'%}">
+    {% block title %}
+    {% endblock title %}
+</head>
+<body>
+    
+    <nav style="background-color: aqua;">
+        <p>cabecalho</p>
+    </nav>
+
+    {% block conteudo %}
+
+    {% endblock %}
+
+    <footer style="background-color: black; color: aliceblue;">
+        <p>mais informacoes</p>
+    </footer>
+
+    <script src="{% static '\agenda\js\script.js' %}"></script>
+    {% block java %}
+    {% endblock java %}
+
+</body>
+</html>
