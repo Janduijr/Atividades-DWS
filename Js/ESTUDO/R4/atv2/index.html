@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <H1 id="contador">0</H1>
+    <button id="aumentar">Aumentar 1</button>
+    <button id="diminuir">Diminuir 1</button>
+
+
+
+    <script>
+
+        var contador = document.querySelector('#contador')
+        var aumentar = document.querySelector('#aumentar')
+        var diminuir = document.querySelector('#diminuir')
+        valor = 0
+
+        function dez(){
+            if(valor == 10){
+                contador.style.color = 'green'
+            } else {
+                contador.style.color = 'black'
+            }
+        }
+        
+        aumentar.addEventListener('click', ()=>{
+            valor += 1
+            contador.innerText = valor
+            dez()
+            
+        })
+        diminuir.addEventListener('click', ()=>{
+            valor -= 1
+            contador.innerText = valor
+            dez()
+        })
+
+
+    </script>
+
+</body>
+</html>

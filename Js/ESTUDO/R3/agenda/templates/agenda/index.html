@@ -1,21 +1,34 @@
 {% extends 'agenda/base.html'%}
+{% load static %}
 
-{%block title%} <title>Index</title> {% endblock title %}\
+{%block title%} <title>Index</title> {% endblock title %}
 
 {% block conteudo %}
+
+    <input type="text" name="text" id="texto">
     
     {% for evento in eventos %}
-        <a href="{% url 'detalhe' evento.id %}"><h1>{{evento.titulo}}</h1></a>
-        <h1>{{evento.inicio}}</h1>
-        <a href="{% url 'local' evento.local.id %}"><h1>{{evento.local}}</h1></a>
-        {% for categoria in evento.categoria.all %}
-            <h1>{{categoria.nome}}</h1>
-        {% empty %}
-            <h3>Nao ha catogorias</h3>
-        {% endfor %}
+        <div class="card">
+            <a href="{% url 'detalhe' evento.id %}"><h1 class="nome">{{evento.titulo}}</h1></a>
+            <h1>{{evento.inicio}}</h1>
+            <a href="{% url 'local' evento.local.id %}"><h1>{{evento.local}}</h1></a>
+            {% for categoria in evento.categoria.all %}
+                <h1>{{categoria.nome}}</h1>
+            {% empty %}
+                <h3>Nao ha catogorias</h3>
+            {% endfor %}
+            
+        </div>
         <br>
     {% empty %}
         <h3>Nao ha eventos!</h3>
     {% endfor %}
 
+    <h1 id="vazio" style="display: none;">Nenhum evento encontrado</h1>
+
 {% endblock conteudo %}
+
+{% block java %}
+    <script src="{% static 'agenda\js\script.js' %}"></script>
+    <script>index()</script>
+{% endblock java %}
