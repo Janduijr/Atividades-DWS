@@ -1,0 +1,21 @@
+{% extends 'agenda/base.html' %}
+
+{% block title %}local{% endblock title %}
+
+{% block conteudo %}
+    
+    <h1>{{local}}</h1>
+
+    <p>{{local.capacidade}}</p>
+    {% for evento in local.eventos.all %}
+        <a href="{% url 'detalhe' evento.id %}"><p>{{evento}}</p></a>
+    {% empty %}
+        <p>Nao possui eventos!</p>
+    {% endfor %}
+
+
+{% endblock conteudo %}
+
+{% block script %}
+    
+{% endblock script %}

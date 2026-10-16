@@ -1,0 +1,29 @@
+{% extends 'agenda/base.html' %}
+
+{% block title %}detalhe{% endblock title %}
+
+{% block conteudo %}
+    <h1>{{evento}}</h1>
+    <button id="butao">Ocutar atividades</button>
+    <div id="atividades">
+        {% for atividade in evento.atividades.all %}
+            <p>{{atividade}}</p>
+        {% empty %}
+            <p>Nao possui atividades!</p>
+        {% endfor %}
+    </div>    
+    {% if evento.relatorios %}
+        <p>{{evento.relatorios.observacoes}}</p>
+    {% else %}
+        <p>Nao possui relatorios!</p>
+    {% endif %}
+
+    <p>Vagas restantes: {{ evento.vagas_restantes }}</p>
+
+{% endblock conteudo %}
+
+{% block script %}
+    <script>
+        detalhe()
+    </script>
+{% endblock script %}

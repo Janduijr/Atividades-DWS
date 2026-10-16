@@ -1,0 +1,32 @@
+{% extends 'agenda/base.html' %}
+
+{% block title %}index{% endblock title %}
+
+{% block conteudo %}
+
+    <input type="text" name="text" id="texto">
+    
+    {% for evento in eventos %}
+        <div style="background-color: antiquewhite;" class="cards">
+            <a href="{% url 'detalhe' evento.id %}"><h1 class="nome">{{evento.titulo}}</h1></a>
+            <p>{{evento.inicio}}</p>
+            <a href="{%  url 'local' evento.local.id %}"><p>{{evento.local}}</p></a>
+            {% for categoria in evento.categoria.all %}
+                <p>{{categoria}}</p>
+            {% empty %}
+                <p>Nao possui categorias</p>
+            {% endfor%}
+        </div>
+    {% empty %}
+        <h1>Nao ha eventos!</h1>
+    {% endfor %}
+
+    <h1 style="display: none;" id="vazio">Nenhum evento encontrado.</h1>
+
+{% endblock conteudo %}
+
+{% block script %}
+    <script>
+        index()
+    </script>
+{% endblock script %}
