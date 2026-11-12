@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar livros</title>
+</head>
+<body>
+    <ul>
+        {% for livro in livros %}
+        <div style="padding-bottom: 10px;">
+            <li>{{livro.titulo}}</li>
+            <li><a href="{% url 'autor_detalhe' livro.autor.id %}">{{livro.autor}}</a></li>
+            <li>{{livro.ano_publicado}}</li>
+            <a href="{% url 'editar_livro' livro.id %}">Editar</a>
+            <br>
+        </div>
+        {% empty %}
+            <li>Nao ha livros</li>
+        {% endfor %}
+        <a href="{% url 'criar_autor' %}">Criar novo autor</a>
+        <a href="{% url 'criar_livro' %}">Criar novo livro</a>
+    </ul>
+</body>
+</html>

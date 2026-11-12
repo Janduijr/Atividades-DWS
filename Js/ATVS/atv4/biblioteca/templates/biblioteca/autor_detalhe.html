@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar livros</title>
+</head>
+<body>
+    <h1>{{autor.nome}}</h1>
+    <ul>
+        {% for livro in livros %}
+            <div style="margin-bottom: 10px;">
+                <li>{{livro.titulo}}</li>
+                <a href="{% url 'editar_livro' livro.id %}">Editar</a>
+                <br>
+            </div>
+        {% empty %}
+            <li>Nao ha livros</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
