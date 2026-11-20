@@ -1,6 +1,6 @@
 from django.db import models
-from django.core.validators import MinLengthValidator
-from .validators import validate_ano, validade_paginas, validade_isbn
+from django.core.validators import MinLengthValidator, FileExtensionValidator
+from .validators import validate_ano, validade_paginas, validade_isbn, validade_tamanho
 
 # Create your models here.
 
@@ -29,6 +29,7 @@ class Livro(models.Model):
     categoria = models.ManyToManyField(Categoria, blank=True)
     paginas = models.PositiveIntegerField(null=True, blank=True, validators=[validade_paginas])
     isbn = models.CharField(null=True, blank=True, validators=[validade_isbn])
+    capa = models.ImageField('imagem', upload_to='livros/', blank=True, validators=[FileExtensionValidator(['jpeg','png','jpg']), validade_tamanho])
     
     def __str__(self):
         return self.titulo

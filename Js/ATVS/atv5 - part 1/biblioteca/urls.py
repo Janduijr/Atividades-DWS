@@ -1,11 +1,14 @@
 
 from django.urls import path
-from .views import listar_livros, autor_detalhe, criar_autor, livro
+from . import views
+
 
 urlpatterns = [
-    path('', listar_livros, name='listar_livros'),
-    path('autor/<int:autor_id>/detalhe/', autor_detalhe, name='autor_detalhe'),
-    path('criar/autor', criar_autor, name='criar_autor'),
-    path('livro/', livro, name='criar_livro'),
-    path('livro/<int:pk>/', livro, name='editar_livro'),
+    path('', views.listar_livros_view.as_view(), name='listar_livros'),
+    path('autor/<int:autor_id>/detalhe/', views.autor_detalhe_view.as_view(), name='autor_detalhe'),
+    path('criar/autor', views.criar_autor_view.as_view(), name='criar_autor'),
+    path('livro/', views.criarlivroView.as_view(), name='criar_livro'),
+    path('livro/<int:pk>/', views.editarlivroView.as_view(), name='editar_livro'),
+    path('livro/<int:pk>/excluir/', views.ExcluirLivroView.as_view(), name='excluir_livro'),
+    path('sobre/', views.SobreView.as_view(), name='sobre'),
 ]

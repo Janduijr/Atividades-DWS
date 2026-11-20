@@ -18,3 +18,10 @@ def validade_isbn(value):
         raise ValidationError (
             'O codigo do isbn deve ter 13 digitos!'
         )
+
+def validade_tamanho(value):
+    limite_mb = 20
+    if value.size >limite_mb * 1024 * 1024:
+        raise ValidationError (
+            f'A capa deve ter no maximo {limite_mb}MB!'
+        )
