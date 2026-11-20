@@ -1,0 +1,92 @@
+[
+  {
+    "model": "biblioteca.autor",
+    "pk": 1,
+    "fields": {
+      "nome": "Jandui",
+      "nacionalidade": "Brasileiro"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "pk": 2,
+    "fields": {
+      "nome": "Pedro",
+      "nacionalidade": "Frances"
+    }
+  },
+  {
+    "model": "biblioteca.categoria",
+    "pk": 1,
+    "fields": {
+      "nome": "Terror"
+    }
+  },
+  {
+    "model": "biblioteca.categoria",
+    "pk": 2,
+    "fields": {
+      "nome": "Comedia"
+    }
+  },
+  {
+    "model": "biblioteca.livro",
+    "pk": 1,
+    "fields": {
+      "titulo": "Hereditario",
+      "autor": 1,
+      "ano_publicado": 2026,
+      "disponivel": true,
+      "paginas": 500,
+      "isbn": "1234567891234",
+      "capa": "livros/imagem_2026-11-20_143122529.png",
+      "categoria": []
+    }
+  },
+  {
+    "model": "biblioteca.livro",
+    "pk": 2,
+    "fields": {
+      "titulo": "incedios",
+      "autor": 2,
+      "ano_publicado": 1500,
+      "disponivel": true,
+      "paginas": 32,
+      "isbn": "1234567891237",
+      "capa": "",
+      "categoria": []
+    }
+  },
+  {
+    "model": "biblioteca.livro",
+    "pk": 3,
+    "fields": {
+      "titulo": "Interestelar",
+      "autor": 2,
+      "ano_publicado": 1942,
+      "disponivel": true,
+      "paginas": 6,
+      "isbn": "1234567891234",
+      "capa": "",
+      "categoria": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "biblioteca.livro",
+    "pk": 4,
+    "fields": {
+      "titulo": "Le trou",
+      "autor": 1,
+      "ano_publicado": 1960,
+      "disponivel": false,
+      "paginas": 42,
+      "isbn": "1234567891237",
+      "capa": "livros/imagem_2026-11-20_155214392.png",
+      "categoria": [
+        2
+      ]
+    }
+  }
+]
