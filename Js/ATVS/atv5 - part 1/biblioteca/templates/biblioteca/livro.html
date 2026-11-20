@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro</title>
+</head>
+<body>
+    {% if livro %}
+        <form action="{% url 'editar_livro' livro.pk %}" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button type="submit">Editar</button>
+        </form>
+    {% else %}
+        <form action="{% url 'criar_livro' %}" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button type="submit">Criar</button>
+        </form>
+    {% endif %}
+</body>
+</html>
