@@ -78,7 +78,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Minibiblioteca',
         'USER': 'postgres',
-        'PASSWORD': 'jandui25',
+        'PASSWORD': 'jandui',
         'HOST': 'localhost',
         'PORT': '5432'
     }
